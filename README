@@ -4,7 +4,7 @@ Start by downloading the file and placing it in a suitable directory.
 
 Next, check that you have Python installed by opening the Terminal and typing the command:
 
-    $ python
+    python
 
 If not, navigate to Python.com using your web browser
     to download and install the latest version.
