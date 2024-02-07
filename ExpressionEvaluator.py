@@ -41,6 +41,9 @@ def domath(number_a, number_b, operator):
 Function to break the user input into digits and operators.
 '''
 def parseexpression(user_input):
+    
+    # handle input errors here with another function for that purpose
+    
     # using re module,
     # break the user's input string into numbers including decimals and each type of operator
     return re.findall(r'\d+\.+\d|\d+|\(|\)|\^|\*|/|\+|-|', user_input)
