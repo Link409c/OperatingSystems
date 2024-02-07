@@ -79,7 +79,7 @@ def runprogram():
                 # from the expressions list,
                 # get each number in the expression before and after the current index
                 firstnumber = float(expressions[n-1])
-                secondnumber = float(expressions[n+1])
+                secondnumber = float(expressions[n+1])-
                 # pass these numbers and the operator to math function
                 currentresult = domath(firstnumber, secondnumber, operator)
                 # replace the completed operation with the result
