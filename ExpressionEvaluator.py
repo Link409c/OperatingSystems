@@ -52,11 +52,12 @@ def parenthesis(expressions, startindex, endindex):
 '''
 Function to print the ordered list of results.
 '''
-def printresults(list):
-    n = 1
+def printresults(equation, list):
+    print(equation)
+    x = 1
     for operation in list:
-       print(f"{n}: {parts}={operation[3]}\n" for parts in operation[0:3])
-       n += 1
+        print('{0}: {1} {2} {3} = {4}'.format(x, operation[0], operation[1], operation[2], operation[3]))
+        x += 1
 
 def runprogram():
     # prompt user for input
@@ -79,11 +80,14 @@ def runprogram():
                 # from the expressions list,
                 # get each number in the expression before and after the current index
                 firstnumber = float(expressions[n-1])
-                secondnumber = float(expressions[n+1])-
+                secondnumber = float(expressions[n+1])
                 # pass these numbers and the operator to math function
                 currentresult = domath(firstnumber, secondnumber, operator)
                 # replace the completed operation with the result
-                expressions[n-1:n+2] = currentresult
+                for i in range(n+1, n-2, -1):
+                    expressions.__delitem__(i)
+                expressions.insert(n-1, " ")
+                expressions[n-1] = currentresult
                 # add the performed operation and its result to the list as a tuple
                 ordered_results.append([firstnumber, operator, secondnumber, currentresult])
             # else pointer is at a number
@@ -91,7 +95,7 @@ def runprogram():
                 # move to next index
                 n += 1
     # print results
-    printresults(ordered_results)
+    printresults(equation, ordered_results)
 
 if __name__ == "__main__":
     # run the program
