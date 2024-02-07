@@ -14,6 +14,11 @@ import sys
 # Add the resulting calculations to a list in order of execution
 # Continue these steps until the entire equation is solved
 # Print the list of results for the user.
+#
+# Feedback: 
+#     Add error handling for user input; 
+#     Finish Parenthesis implementation; 
+#     Can use Python sur library like pyQT5
 
 '''
 Function to perform mathematic calculations.
