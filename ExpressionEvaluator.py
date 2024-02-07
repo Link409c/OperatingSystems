@@ -1,5 +1,6 @@
 import math
 import re
+import sys
 
 # Project 1
 # A Program designed to execute, in order, the steps of a given mathematical equation.
@@ -59,9 +60,9 @@ def printresults(equation, list):
         print('{0}: {1} {2} {3} = {4}'.format(x, operation[0], operation[1], operation[2], operation[3]))
         x += 1
 
-def runprogram():
+def runprogram(arg):
     # prompt user for input
-    equation = input("Enter a mathematical equation of any length using numbers and operators: ")
+    equation = arg
     # create list to hold results
     ordered_results = []
     # call parse function to get list of expressions
@@ -99,4 +100,4 @@ def runprogram():
 
 if __name__ == "__main__":
     # run the program
-    runprogram()
+    runprogram(sys.argv[1])
