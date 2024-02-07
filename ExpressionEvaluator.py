@@ -3,6 +3,7 @@ import re
 import sys
 
 # Project 1
+# Christian Simpson
 # A Program designed to execute, in order, the steps of a given mathematical equation.
 #
 # The program should:
