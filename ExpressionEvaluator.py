@@ -36,7 +36,7 @@ Function to break the user input into digits and operators.
 def parseexpression(user_input):
     # using re module,
     # break the user's input string into numbers including decimals and each type of operator
-    return re.findall(r'\d+\.+\d|\d+|\(|\)|\^|\*|\/|\+|\-|', user_input)
+    return re.findall(r'\d+\.+\d|\d+|\(|\)|\^|\*|/|\+|-|', user_input)
 
 '''
 Function to isolate calculations within parenthesis.
