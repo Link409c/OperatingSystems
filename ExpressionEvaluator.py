@@ -1,7 +1,9 @@
 import math
 import re
+import sys
 
 # Project 1
+# Christian Simpson
 # A Program designed to execute, in order, the steps of a given mathematical equation.
 #
 # The program should:
@@ -12,6 +14,11 @@ import re
 # Add the resulting calculations to a list in order of execution
 # Continue these steps until the entire equation is solved
 # Print the list of results for the user.
+#
+# Feedback: 
+#     Add error handling for user input; 
+#     Finish Parenthesis implementation; 
+#     Can use Python sur library like pyQT5
 
 '''
 Function to perform mathematic calculations.
@@ -34,9 +41,12 @@ def domath(number_a, number_b, operator):
 Function to break the user input into digits and operators.
 '''
 def parseexpression(user_input):
+    
+    # handle input errors here with another function for that purpose
+    
     # using re module,
     # break the user's input string into numbers including decimals and each type of operator
-    return re.findall(r'\d+\.+\d|\d+|\(|\)|\^|\*|\/|\+|\-|', user_input)
+    return re.findall(r'\d+\.+\d|\d+|\(|\)|\^|\*|/|\+|-|', user_input)
 
 '''
 Function to isolate calculations within parenthesis.
@@ -52,15 +62,16 @@ def parenthesis(expressions, startindex, endindex):
 '''
 Function to print the ordered list of results.
 '''
-def printresults(list):
-    n = 1
+def printresults(equation, list):
+    print(equation)
+    x = 1
     for operation in list:
-       print(f"{n}: {parts}={operation[3]}\n" for parts in operation[0:3])
-       n += 1
+        print('{0}: {1} {2} {3} = {4}'.format(x, operation[0], operation[1], operation[2], operation[3]))
+        x += 1
 
-def runprogram():
+def runprogram(arg):
     # prompt user for input
-    equation = input("Enter a mathematical equation of any length using numbers and operators: ")
+    equation = arg
     # create list to hold results
     ordered_results = []
     # call parse function to get list of expressions
@@ -83,7 +94,10 @@ def runprogram():
                 # pass these numbers and the operator to math function
                 currentresult = domath(firstnumber, secondnumber, operator)
                 # replace the completed operation with the result
-                expressions[n-1:n+2] = currentresult
+                for i in range(n+1, n-2, -1):
+                    expressions.__delitem__(i)
+                expressions.insert(n-1, " ")
+                expressions[n-1] = currentresult
                 # add the performed operation and its result to the list as a tuple
                 ordered_results.append([firstnumber, operator, secondnumber, currentresult])
             # else pointer is at a number
@@ -91,8 +105,8 @@ def runprogram():
                 # move to next index
                 n += 1
     # print results
-    printresults(ordered_results)
+    printresults(equation, ordered_results)
 
 if __name__ == "__main__":
     # run the program
-    runprogram()
+    runprogram(sys.argv[1])
