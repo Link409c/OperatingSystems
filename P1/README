@@ -1,6 +1,6 @@
 This is the user manual for Project 1: The Arithmetic Interpreter.
 
-Start by downloading the file and placing it in a suitable directory.
+Start by downloading the file ExpressionEvaluator.py and placing it in a suitable directory.
 
 Next, check that you have Python installed by opening the Terminal and typing the command:
 
@@ -8,7 +8,7 @@ Next, check that you have Python installed by opening the Terminal and typing th
 
 If not, navigate to Python.com using your web browser to download and install the latest version.
 
-Once that is complete, open the Terminal.
+Once that is complete, open a new Terminal.
 
 Navigate to the directory containing the file, "ExpressionEvaluator.py".
 
@@ -20,5 +20,6 @@ In place of "arg1", type a mathematical equation consisting of numbers, decimals
 
     Numbers can be any length.
     Valid operators are addition (+), subtraction(-), multiplication(*), division(/), and exponent(^).
+    Any erroneous input will be rejected by the program. 
 
 Hit the ENTER key to start the program. Your equation and each step to solve it are shown.
