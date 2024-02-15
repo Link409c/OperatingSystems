@@ -1,7 +1,6 @@
 import math
 import re
 import sys
-# test
 
 # Project 1
 # Christian Simpson
@@ -42,13 +41,18 @@ def domath(number_a, number_b, operator):
 Function to break the user input into digits and operators.
 '''
 def parseexpression(user_input):
-    
-    # handle input errors here with another function for that purpose
-    
+    # could handle input errors here with another function for that purpose
     # using re module,
     # break the user's input string into numbers including decimals and each type of operator
     return re.findall(r'\d+\.+\d|\d+|\(|\)|\^|\*|/|\+|-|', user_input)
 
+'''
+Function to check user input for any non-numeric characters.
+'''
+def checkinput(the_equation):
+    # ".isalpha" function checks each variable in passed parameter
+    # if an alphabetical character is found, return true
+    return any(_.isalpha() for _ in the_equation)
 '''
 Function to isolate calculations within parenthesis.
 '''
@@ -64,15 +68,22 @@ def parenthesis(expressions, startindex, endindex):
 Function to print the ordered list of results.
 '''
 def printresults(equation, list):
-    print(equation)
+    print(f"Your Equation: {equation}")
     x = 1
     for operation in list:
         print('{0}: {1} {2} {3} = {4}'.format(x, operation[0], operation[1], operation[2], operation[3]))
         x += 1
 
+'''
+Function to execute the steps of the program in order.
+'''
 def runprogram(arg):
     # prompt user for input
     equation = arg
+    # check input for error
+    if(checkinput(equation)):
+        print("Input is incorrect. Please refer to the user instructions.")
+        sys.exit(-1)
     # create list to hold results
     ordered_results = []
     # call parse function to get list of expressions
