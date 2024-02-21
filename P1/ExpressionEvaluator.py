@@ -81,7 +81,7 @@ def runprogram(arg):
     # prompt user for input
     equation = arg
     # check input for error
-    if(checkinput(equation)):
+    if checkinput(equation):
         print("Input is incorrect. Please refer to the user instructions.")
         sys.exit(-1)
     # create list to hold results

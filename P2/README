@@ -7,15 +7,17 @@ operating system allocates, manages, and assigns memory to different jobs or pro
 loaded into the system.
 
 The user should pass a file to the arguments when running the program that contains
-job / process names and the necessary memory needed to run the programs.
+the necessary memory needed to run the programs, sizes of the memory partitions, and job names / sizes.
 
 Example:
 
 150000
+70000, 20000, 50000, 10000
 Job 1, 10000
 Job 2, 50000
 Job 3, 75000
 Job 4, 25000
+Job 5, 30000
 
-The program will parse the input and create a list the functions will follow to
+The program will parse the input and create lists the functions will follow to
 illustrate how memory allocation would handle the jobs.
