@@ -11,10 +11,11 @@ job / process names and the necessary memory needed to run the programs.
 
 Example:
 
-Job 1, 10k
-Job 2, 50k
-Job 3, 75k
-Job 4, 25k
+150000
+Job 1, 10000
+Job 2, 50000
+Job 3, 75000
+Job 4, 25000
 
 The program will parse the input and create a list the functions will follow to
 illustrate how memory allocation would handle the jobs.
