@@ -171,7 +171,7 @@ def sumavailablemem(memory_partitions, working_jobs):
 Function to perform compaction on the memory partitions.
 '''
 
-
+# delete partitions with 0 memory remaining which do not have assigned jobs
 def compact(memory_partitions, available_memory, working_jobs, wait_list):
     # var to track index
     next_partition_index = 0
