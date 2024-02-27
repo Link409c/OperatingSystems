@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="workspace commit 2/21/24">
+    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="testing commits to new url">
+      <change beforePath="$PROJECT_DIR$/.idea/OperatingSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OperatingSystems.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P1/ExpressionEvaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/P1/ExpressionEvaluator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/P2/MemoryManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/P2/MemoryManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P2/README" beforeDir="false" afterPath="$PROJECT_DIR$/P2/README" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +41,18 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cdsim/IdeaProjects/OperatingSystems/P2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cdsim\IdeaProjects\OperatingSystems\P2" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cdsim\IdeaProjects\Operating Systems\venv\P1 Expression Evaluator" />
     </key>
@@ -56,6 +60,7 @@
   <component name="RunManager">
     <configuration name="ExpressionEvaluator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OperatingSystems" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
