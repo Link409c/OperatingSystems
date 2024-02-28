@@ -15,12 +15,17 @@
 #   First-Fit
 # the program should keep several lists:
 #   submitted jobs - have a job ID and memory needed
-#   memory partitions
-#   working jobs
+#   memory partitions - each has allotted memory and an assigned job
 #   completed jobs - ID, memory needed, order of completion
 # the program should adjust memory segments using compaction.
 # the program should print the lists to a file?
 # the program should print some type of results for the user?
+##
+# updates:
+# remove working jobs list
+# in its place, change second variable of partition objects
+# this field will hold the job at that partition insteald of assigned flag
+
 
 import sys
 import time
@@ -44,9 +49,9 @@ def readfile(a_file):
         partition_sizes = map(float, contents[1].split(','))
         # make list to represent partitions
         partitions = []
-        # assign each size to partition and flag occupied status to false
+        # assign each size to partition and set parition job to None
         for partition in partition_sizes:
-            partitions.append([partition, False])
+            partitions.append([partition, None])
         # loop from index 2 to end of contents for jobs (line 3 : end)
         for job in contents[2:]:
             # format is name, memory needed
@@ -81,6 +86,7 @@ def checkjobmemory(system_memory, jobs_list):
 Function to check total system memory against sum of partitions for errors.
 '''
 
+
 def checkmemorymismatch(system_memory, memory_partitions):
     # get the sum of all memory partitions
     partitions_sum = 0
@@ -97,7 +103,7 @@ Function to emulate memory allocation using first-fit method.
 '''
 
 
-def first_fit(memory_partitions, job_list, working_list):
+def first_fit(memory_partitions, job_list):
     # list to hold assigned job indexes
     jobs_to_remove = []
     # for each job in the job list,
@@ -107,11 +113,9 @@ def first_fit(memory_partitions, job_list, working_list):
         for partition_index in range(len(memory_partitions)):
             # if partition memory will fit job and partition is unoccupied,
             if job_mem <= memory_partitions[partition_index][0] and \
-                    not memory_partitions[partition_index][1]:
-                # flag partition as occupied
-                memory_partitions[partition_index][1] = True
+                    memory_partitions[partition_index][1] is None:
                 # assign that partition to the current job
-                working_list.append([partition_index, job])
+                memory_partitions[partition_index][1] = job
                 # add index to list for future removal
                 jobs_to_remove.append(partition_index)
                 # terminate upon successful assignment
@@ -124,10 +128,8 @@ def first_fit(memory_partitions, job_list, working_list):
     for job in job_list:
         if job is not None:
             wait_list.append(job)
-    # clear the job list
-    job_list.clear()
     # return the updated lists in order
-    return memory_partitions, working_list, wait_list
+    return memory_partitions, wait_list
 
 
 '''
@@ -145,25 +147,33 @@ def best_fit(memory_partitions, job_list, wait_list):
 
 
 '''
+Function to emulate memory allocation using worst-fit method.
+'''
+
+
+def worst_fit(memory_partitions, job_list, wait_list):
+    # assign jobs based on their worst fit 
+    # each job should be assigned to the partition with the largest difference between partition memory and job memory
+    return None
+
+
+'''
 Function to get the sum of available memory across all partitions.
 '''
 
 
-def sumavailablemem(memory_partitions, working_jobs):
+def sumavailablemem(memory_partitions):
     available_sum = 0
-    jobs_index = 0
     # for each partition,
     for partition in memory_partitions:
         # if the partition is assigned a job,
-        if partition[1]:
+        if partition[1] is not None:
             # get job assigned to this partition
-            assigned_job = working_jobs[jobs_index][1]
+            job = partition[1]
             # get memory needed for that job
-            job_mem = float(assigned_job[1])
+            job_mem = float(job[1])
             # add the difference between job memory and partition memory to the total memory available
             available_sum += partition[0] - job_mem
-            # increment partition index
-            jobs_index += 1
         # else add that partition's total memory to the sum
         else:
             available_sum += partition[0]
@@ -175,7 +185,8 @@ def sumavailablemem(memory_partitions, working_jobs):
 Function to perform compaction on the memory partitions.
 '''
 
-def compact(memory_partitions, available_memory, working_jobs, wait_list):
+
+def compact(memory_partitions, available_memory, wait_list):
     # var to track index
     next_partition_index = 0
     # list to hold new partitions
@@ -191,33 +202,31 @@ def compact(memory_partitions, available_memory, working_jobs, wait_list):
             # while the needs have not been met,
             while new_partition_memory < required_memory:
                 # get memory of job at next partition
-                assigned_job_memory = float(working_jobs[next_partition_index][1])
+                assigned_job_memory = float(memory_partitions[next_partition_index][1])
                 # get total memory at that partition
-                memory = memory_partitions[next_partition_index][0]
+                curr_part_memory = float(memory_partitions[next_partition_index][0])
                 # get difference
-                memory_to_share = memory - assigned_job_memory
-                # if all remaining memory at current partition is used, or the partition has a job assigned,
+                memory_to_share = curr_part_memory - assigned_job_memory
+                # if all remaining memory at current partition is used,
                 # move to next partition
-                if memory_to_share == 0:  # or memory_partitions[next_partition_index][1]:
+                if memory_to_share == 0:  
                     continue
                 # else allot this amount to the needed memory
                 else:
                     # add to new partition memory
                     new_partition_memory += memory_to_share
                     # subtract from current partition memory
-                    memory_partitions[next_partition_index][0] = memory - memory_to_share
+                    memory_partitions[next_partition_index][0] = curr_part_memory - memory_to_share
                     # if current partition would be reduced to zero memory, remove it
-                    if memory_to_share - memory == 0:
+                    if memory_to_share - curr_part_memory == 0:
                         memory_partitions[next_partition_index] = None
                     # move to next partition
                     next_partition_index += 1
             # once memory requirement is fulfilled, create new partition
             # add to new partition list
-            new_partitions.append([new_partition_memory, True])
+            new_partitions.append([new_partition_memory, job])
             # remove job from wait list
             wait_list.remove(job)
-            # add job to working list
-            working_jobs.append(job)
             # update total available memory
             available_memory -= new_partition_memory
         # otherwise move to the next job, leaving current one on the waitlist until working jobs complete.
@@ -226,7 +235,7 @@ def compact(memory_partitions, available_memory, working_jobs, wait_list):
     for partition in new_partitions:
         memory_partitions.append(partition)
     # return updated lists
-    return memory_partitions, working_jobs, wait_list
+    return memory_partitions, wait_list
 
 
 '''
@@ -269,26 +278,24 @@ def runprogram(arg):
         print("Partitions:")
         printList(partitions)
         # create lists for jobs in progress, waiting jobs, and completed jobs
-        working_list, wait_list, completed_jobs = [], [], []
+        wait_list, completed_jobs = [], []
         # variable to simulate time
         program_runtime = 0
         # variable to track completed jobs index
         next_completed_slot = 0
         # while any of the jobs lists are populated,
-        while jobs.__len__() > 0 or wait_list.__len__() > 0 or working_list.__len__() > 0:
+        while jobs.__len__() > 0 or wait_list.__len__() > 0:
             # if jobs need assignment, run the fit functions, then compact if necessary
             if jobs.__len__() > 0:
                 # initial assignment of scheduled jobs
-                partitions, working_list, wait_list = first_fit(partitions, jobs, working_list)
+                partitions, wait_list = first_fit(partitions, jobs)
                 jobs.clear()
             elif wait_list.__len__() > 0:
                 # active assignment of waitlisted jobs
-                partitions, working_list, wait_list = first_fit(partitions, wait_list, working_list)
+                partitions, working_list, wait_list = first_fit(partitions, wait_list)
             # display the current runtime
             print(f"\nTime: {program_runtime}\n")
             # print the lists
-            print("Assigned Jobs:\n")
-            printList(working_list)
             print("\nWait List:\n")
             printList(wait_list)
             # get total available memory
@@ -307,15 +314,13 @@ def runprogram(arg):
             # get the next partition with an assigned job
             next_working_partition = 0
             for partition in partitions:
-                if partition[1]:
+                if partition[1] is not None:
                     break
                 next_working_partition += 1
             # complete that job by moving it to the completed list
-            completed_jobs[next_completed_slot] = working_list[next_working_partition]
-            # remove it from the working list
-            working_list[next_working_partition] = None
-            # set the partition assignment flag to false
-            partitions[next_working_partition][1] = False
+            completed_jobs[next_completed_slot] = partitions[next_working_partition][1]
+            # remove it from the partition
+            partitions[next_working_partition][1] = None
             # increment clock
             program_runtime += time.process_time()
             # pause system for review
