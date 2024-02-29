@@ -22,9 +22,6 @@
 # the program should print some type of results for the user?
 ##
 # updates:
-# remove working jobs list
-# in its place, change second variable of partition objects
-# this field will hold the job at that partition insteald of assigned flag
 
 
 import sys
