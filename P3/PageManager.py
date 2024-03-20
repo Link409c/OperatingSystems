@@ -19,6 +19,8 @@
 # record the amount of interrupts when using FIFO, then LRU.
 # print the results.
 
+import sys
+import random
 
 class Job:
     """
@@ -26,16 +28,39 @@ class Job:
     Has lists containing pages the job has been partitioned into,
     and the necessary page requests needed to complete the job.
     """
-    __slots__ = ['pages', 'steps']
+    __slots__ = ['memory', 'pages', 'steps']
 
-    def __init__(self, pages, steps):
-        self.pages = pages
-        self.steps = steps
+    def __init__(self, memory):
+        """creates the job object, using the passed memory value to create pages and steps to complete."""
+        # the total memory needed for the job
+        self.memory = memory
+        # the pages memory is equally split into
+        self.pages = self.makepages()
+        # the required steps accessing each page to complete the job
+        self.steps = self.makesteps()
 
-    def runJob(job):
+    def runjob(self):
         """run each step in order to 'complete' a job."""
+        # for the steps of the job,
+        # if the needed page is in memory,
+        # move to the next step
+        # else,
+        # if there is not an empty frame,
+        # call one of the assignment functions based on the algorithm in use
+        # then increment the interrupt counter.
+        # else,
+        # put the page in the next available frame
+        # return the number of interrupts
 
-    def randomizePageOrder(job):
+    def makepages(self):
+        """equally distributes job memory into pages."""
+        # get the total memory
+        # assumption is memory is in bytes
+        # divide by 100 to get number of pages needed
+        # return an ordered list of numbers
+        return pages
+
+    def makesteps(self):
         """creates a semi randomized list of steps to be executed to complete a job."""
         # for each page in the job,
         # get a random number 1 through 3
@@ -45,11 +70,12 @@ class Job:
         # this is the steps of how to complete the job.
         return steps
 
-def assignFrameFIFO(job):
+def assignframeFIFO(page):
     """assigns a page of a job to a frame in memory, removing pages using FIFO policy."""
 
-def assignFrameLRU(job):
+def assignframeLRU(page):
     """assigns a page of a job to a frame in memory, removing pages using LRU policy."""
+
 
 
 
