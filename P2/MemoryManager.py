@@ -235,7 +235,7 @@ def compact(memory_partitions, available_memory, wait_list):
                 next_partition_index += 1
             # once memory requirement is fulfilled, create new partition
             # add to new partition list
-            new_partitions.append([new_partition_memory, job])
+            new_partitions.append([new_partition_memory, wait_list[job]])
             # remove job from wait list
             wait_list[job] = None
             # update total available memory
@@ -295,8 +295,6 @@ def runprogram(arg):
         wait_list, completed_jobs = [], []
         # variable to simulate time
         program_runtime = 0
-        # variable to track completed jobs index
-        next_completed_slot = 0
         # add function to choose method type here
         method = "First-Fit"
         # while any of the jobs lists are populated,
@@ -338,7 +336,7 @@ def runprogram(arg):
                     break
                 next_working_partition += 1
             # complete that job by moving it to the completed list
-            completed_jobs[next_completed_slot] = partitions[next_working_partition][1]
+            completed_jobs.append(partitions[next_working_partition][1])
             # remove it from the partition
             partitions[next_working_partition][1] = None
             # increment clock
