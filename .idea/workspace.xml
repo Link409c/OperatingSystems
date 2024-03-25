@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="testing commits to new url">
-      <change afterPath="$PROJECT_DIR$/Project 4/JobScheduler.py" afterDir="false" />
+    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="project 3 work 3/20">
       <change beforePath="$PROJECT_DIR$/.idea/OperatingSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OperatingSystems.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P2/MemoryManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/P2/MemoryManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P3/PageManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3/PageManager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,63 +36,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.MemoryManager with Params File.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cdsim/IdeaProjects/OperatingSystems/P2",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Coding Projects/OperatingSystems/P2/MemoryManager.py&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\cdsim\IdeaProjects\OperatingSystems\P2" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cdsim\IdeaProjects\Operating Systems\venv\P1 Expression Evaluator" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MemoryManager with Params File">
-    <configuration name="ExpressionEvaluator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="MemoryManager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OperatingSystems" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="E:\Coding Projects\Data Structures II\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P2" />
       <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P1/ExpressionEvaluator.py" />
-      <option name="PARAMETERS" value="hello world" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MemoryManager with Params File" type="PythonConfigurationType" factoryName="Python">
-      <module name="OperatingSystems" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.10 (CS4104-Data-Structures-Algorithms-II)" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\cdsim\IdeaProjects\OperatingSystems\P2" />
-      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P2/MemoryManager.py" />
@@ -105,13 +75,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Python.MemoryManager with Params File" />
-      <item itemvalue="Python.ExpressionEvaluator" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ExpressionEvaluator" />
+        <item itemvalue="Python.MemoryManager" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +149,63 @@
       <option name="project" value="LOCAL" />
       <updated>1708494145658</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="commit 2/21/24">
+      <created>1708540493260</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708540493260</updated>
+    </task>
+    <task id="LOCAL-00010" summary="changes to gitignore">
+      <created>1709146556171</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709146556171</updated>
+    </task>
+    <task id="LOCAL-00011" summary="file to pass to program">
+      <created>1709146570963</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709146570963</updated>
+    </task>
+    <task id="LOCAL-00012" summary="debugging. parse file and error handling good. first fit job assignment good. wait list job assignment incorrect. compaction summation bug: variable type at assigned_job_memory is a list">
+      <created>1709146667861</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709146667861</updated>
+    </task>
+    <task id="LOCAL-00013" summary="changes to gitignore">
+      <created>1709146694238</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709146694238</updated>
+    </task>
+    <task id="LOCAL-00014" summary="debugging compaction: now correctly allocates memory to new partition and updates lists. then, jobs are not correctly assigned to the new partition.">
+      <created>1709159817953</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709159817953</updated>
+    </task>
+    <task id="LOCAL-00015" summary="removed some comments">
+      <created>1709210252881</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709210252881</updated>
+    </task>
+    <task id="LOCAL-00016" summary="project 3">
+      <created>1710900396692</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1710900396692</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,6 +227,13 @@
     <MESSAGE value="added many functions and programmed many functions" />
     <MESSAGE value="updated README" />
     <MESSAGE value="workspace commit 2/21/24" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace commit 2/21/24" />
+    <MESSAGE value="commit 2/21/24" />
+    <MESSAGE value="file to pass to program" />
+    <MESSAGE value="debugging. parse file and error handling good. first fit job assignment good. wait list job assignment incorrect. compaction summation bug: variable type at assigned_job_memory is a list" />
+    <MESSAGE value="changes to gitignore" />
+    <MESSAGE value="debugging compaction: now correctly allocates memory to new partition and updates lists. then, jobs are not correctly assigned to the new partition." />
+    <MESSAGE value="removed some comments" />
+    <MESSAGE value="project 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="project 3" />
   </component>
 </project>
