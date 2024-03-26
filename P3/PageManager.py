@@ -66,16 +66,12 @@ class PageTableEntry:
     """
     __slots__ = ['inMemory', 'referenced', 'modified', 'frameNumber']
 
-    def __init__(self):
-        self.inMemory = False
-        self.referenced = 0
-        self.modified = 0
-        self.frameNumber = None
-    def __init__(self, inMemoryflag, referenceflag, modifiedflag, aframeNumber):
+    def __init__(self, inMemoryflag = False, referenceflag = 0, modifiedflag = 0, aframeNumber = None):
         self.inMemory = inMemoryflag
         self.referenced = referenceflag
         self.modified = modifiedflag
         self.frameNumber = aframeNumber
+
 def makeNewFrames(numframes, jobs = [Job]):
     """
     creates a new list of frames according to the passed parameter,
@@ -100,8 +96,15 @@ def makeNewFrames(numframes, jobs = [Job]):
 def assignframeFIFO(page):
     """assigns a page of a job to a frame in memory, removing pages using FIFO policy."""
 
+
 def assignframeLRU(page):
     """assigns a page of a job to a frame in memory, removing pages using LRU policy."""
+
+
+def readfile(file):
+    """reads the passed file input from args and returns frame numbers and job memory requirements."""
+    # first line is frame amounts
+    # second line and on is job memory requirements
 
 def runprogram(inputfile):
     print("Welcome to the Page Management Program.")
@@ -109,7 +112,7 @@ def runprogram(inputfile):
     jobs = []
     with open(inputfile, 'r') as file:
         # get each number in sequence
-        file.read()
+        memoryreqs = file.readline()
         # these are the jobs' memory requirements
         # for each number, make a new job object
 
