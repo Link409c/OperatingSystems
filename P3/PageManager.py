@@ -7,7 +7,6 @@
 
 import sys
 import random
-import Math
 
 class PageTableEntry:
     """
