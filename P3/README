@@ -22,7 +22,7 @@ Ensure your input file is located in the same directory for ease of use.
 
 To run the program, type the command:
 
-    python ExpressionEvaluator.py arg1
+    python PageManager.py arg1
 
 where arg1 is your filename.
 
