@@ -7,7 +7,7 @@
 
 import sys
 import random
-
+import Math
 
 class PageTableEntry:
     """
@@ -83,7 +83,7 @@ class Job:
         # get the total memory
         # assumption is memory is in bytes
         # divide by 100 to get number of pages needed
-        numpages = self.memory // 100
+        numpages = -(-self.memory // 100)
         pages = []
         for i in range(numpages):
             pages.append(i)
