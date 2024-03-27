@@ -25,17 +25,18 @@ class Job:
         # the required steps accessing each page to complete the job
         self.steps = self.makesteps()
 
-    def runjob(self):
+    def runjob(self, frames, pmt):
         """run each step in order to 'complete' a job."""
         # for the steps of the job,
-        # if the needed page is in memory,
-        # move to the next step
-        # else,
-        # if there is not an empty frame,
-        # call one of the assignment functions based on the algorithm in use
-        # then increment the interrupt counter.
-        # else,
-        # put the page in the next available frame
+        for step in self.steps:
+            # if the step is not in memory,
+            while not frames.__contains__(step):
+                # if there is not an empty frame,
+                if not frames.__contains__(None):
+                    # call one of the assignment functions based on the algorithm in use
+                    # then increment the interrupt counter.
+                # else,
+                    # put the page in the next available frame
         # return the number of interrupts
 
     def makepages(self):
@@ -43,17 +44,27 @@ class Job:
         # get the total memory
         # assumption is memory is in bytes
         # divide by 100 to get number of pages needed
+        numpages = self.memory / 100
+        pages = []
+        for i in range(numpages):
+            pages.append(i)
         # return an ordered list of numbers
         return pages
 
     def makesteps(self):
         """creates a semi randomized list of steps to be executed to complete a job."""
+        # list to hold steps
+        steps = []
         # for each page in the job,
-        # get a random number 1 through 3
-        # assign that number to the page
-        # for the sum of the numbers assigned to the pages,
-        # put each page into a list in a random order
-        # this is the steps of how to complete the job.
+        for page in self.pages:
+            # get a random number 1 through 3
+            numcalls = random.randint(1, 3)
+            # add that many instances of the page to the steps list
+            for j in range(numcalls):
+                steps.append(page)
+        # randomize the order of the steps
+        random.shuffle(steps)
+        # return the list
         return steps
 
 class PageTableEntry:
@@ -72,7 +83,7 @@ class PageTableEntry:
         self.modified = modifiedflag
         self.frameNumber = aframeNumber
 
-def makeNewFrames(numframes, jobs = [Job]):
+def makeNewFrames(numframes, jobs, pmt):
     """
     creates a new list of frames according to the passed parameter,
     and populates the list with as many pages as possible.
@@ -80,50 +91,68 @@ def makeNewFrames(numframes, jobs = [Job]):
     # make list of frames
     frames = [None for _ in range(numframes)]
     # for each job,
-    for Job in jobs:
-        # if there are empty frames,
-        if frames.__contains__(None):
-            # for each page in the job,
-            for page in Job.pages:
-                # assign pages to empty frames
-                frames[frames.index(None)] = page
-        else:
+    for job in jobs:
+        # if there are no empty frames,
+        if not frames.__contains__(None):
+            # leave the loop
             break
+        else:
+            for i in range(len(job.pages)):
+                # while there are empty frames,
+                if frames.__contains__(None):
+                    # get next empty frame
+                    nextindex = frames.index(None)
+                    # assign page to that frame
+                    frames[nextindex] = job.pages[i]
+                    # update the page entry for that page
+                    pmt[pmt.index(job)][i] = PageTableEntry(True, 0, 0, nextindex)
+                else:
+                    break
     # return frames once filled with pages
-    return frames
+    return pmt, frames
 
-
-def assignframeFIFO(page):
+def assignframeFIFO(frame, frames, jobs, pmt):
     """assigns a page of a job to a frame in memory, removing pages using FIFO policy."""
+    #
 
 
-def assignframeLRU(page):
+def assignframeLRU(frame, frames, jobs, pmt):
     """assigns a page of a job to a frame in memory, removing pages using LRU policy."""
 
 
 def readfile(file):
     """reads the passed file input from args and returns frame numbers and job memory requirements."""
-    # first line is frame amounts
-    # second line and on is job memory requirements
+    jobs = []
+    with open(file, 'r') as thefile:
+        contents = thefile.readlines()
+        # first line is frame amount (2 through 5)
+        numframes = contents[0]
+        # second line and on is job memory requirements
+        for line in contents[1:]:
+            newjob = Job(line)
+            jobs.append(newjob)
+    thefile.close()
+    return numframes, jobs
 
 def runprogram(inputfile):
     print("Welcome to the Page Management Program.")
-    # create jobs from file input
-    jobs = []
-    with open(inputfile, 'r') as file:
-        # get each number in sequence
-        memoryreqs = file.readline()
-        # these are the jobs' memory requirements
-        # for each number, make a new job object
-
-    # get number of page frames (variable user input)
-    numframes = input("\nEnter the number of page frames you want to test with.")
-    frames = makeNewFrames()
-    # list representing page management table for each job
-    pmts = [[None] for _ in range(len(jobs))]
-    # divide each job into pages
-    # assign each page a frame until no more frames available
+    # create number of frames and jobs list from file input
+    numframes, jobs = readfile(inputfile)
+    # populate list of page management tables for each job
+    pmts = []
+    # for each job,
+    for i in range(len(jobs)):
+        # for each of its pages,
+        jobpages = jobs[i].pages
+        for j in range(len(jobpages)):
+            # create a new PTE
+            pmts[i][j] = PageTableEntry()
+    # populate frames list
+    pmt, frames = makeNewFrames(numframes, jobs, pmts)
+    interrupts = 0
     # for each job, follow its list of page calls to complete it
+    for job in jobs:
+        job.runjob(frames)
     # for each step,
     # check frames to see if that page is loaded
     # if it is, move to next step
