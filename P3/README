@@ -1,0 +1,42 @@
+This is the instruction manual for Project 3: The Page Manager.
+
+This project is designed to simulate page fault handling in an operating system.
+
+The user will pass a file to the args array of the program, formatted like so:
+
+2
+1000
+2000
+3000
+500
+200
+
+The first number is the amount of frames to use (2 through 5).
+The second number and onwards is each job's required memory.
+
+To run the program:
+
+Navigate to the directory containing the file, "PageManager.py".
+
+Ensure your input file is located in the same directory for ease of use.
+
+To run the program, type the command:
+
+    python ExpressionEvaluator.py arg1
+
+where arg1 is your filename.
+
+The program will create a number of frames, split each job into pages, and create
+Page Management Tables for each job.
+
+The user will be prompted to input a replacement algorithm acronym to run the jobs.
+
+Please choose "FIFO" or "LRU" at this time. Any other input will cause the program to close.
+
+The program will then run each job and document the number of interrupts that occur.
+
+Page Replacement will be handled according to the chosen replacement algorithm.
+
+The program will inform the user of the results after completing every job.
+
+Note the steps generated for each job are random, so run times and interrupt counts will vary.
