@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="project 3 work 3/20">
-      <change beforePath="$PROJECT_DIR$/.idea/OperatingSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OperatingSystems.iml" afterDir="false" />
+    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="project 3 work 3/26 - 3/27">
+      <change afterPath="$PROJECT_DIR$/P3/README" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/P3/PageManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3/PageManager.py" afterDir="false" />
     </list>
@@ -205,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710900396692</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="project 3 work 3/26 - 3/27">
+      <created>1711520390432</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1711520390432</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,6 +241,7 @@
     <MESSAGE value="debugging compaction: now correctly allocates memory to new partition and updates lists. then, jobs are not correctly assigned to the new partition." />
     <MESSAGE value="removed some comments" />
     <MESSAGE value="project 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="project 3" />
+    <MESSAGE value="project 3 work 3/26 - 3/27" />
+    <option name="LAST_COMMIT_MESSAGE" value="project 3 work 3/26 - 3/27" />
   </component>
 </project>
