@@ -44,6 +44,7 @@ class Job:
 
     def runjob(self, frames, pmt, policy="FIFO"):
         """run each step in order to 'complete' a job."""
+        # syntax error here
         print(f"Running job {id(self)}")
         interrupts = 0
         # for the steps of the job,
