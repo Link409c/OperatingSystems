@@ -12,7 +12,7 @@ import random
 class PageTableEntry:
     """
     An object representing a single entry in a Page Management Table.
-    Has flags for wether the page is stored in a page frame, if the page
+    Has flags for whether the page is stored in a page frame, if the page
     has been referenced since being loaded into memory, if the page has been
     modified since being loaded into memory, and the frame number the page is
     stored at.
@@ -45,7 +45,7 @@ class Job:
 
     def runjob(self, frames, pmt, policy="FIFO"):
         """run each step in order to 'complete' a job."""
-        print(f"Running job {id(self)}")
+        print(f"Running Job ID: {str(id(self))}")
         interrupts = 0
         # for the steps of the job,
         for step in self.steps:
@@ -75,6 +75,7 @@ class Job:
                     steppte.referenced = 1
                 # update the pmt with the up to date pte
                 pmt[pmt.index(self)][step] = steppte
+                print(f"Step {step} complete.")
         # return the number of interrupts
         return interrupts
 
@@ -83,7 +84,7 @@ class Job:
         # get the total memory
         # assumption is memory is in bytes
         # divide by 100 to get number of pages needed
-        numpages = self.memory // 100
+        numpages = int(self.memory) // 100
         pages = []
         for i in range(numpages):
             pages.append(i)
@@ -115,13 +116,15 @@ def makePMT(jobs):
     """
     print("Creating Page Management Tables for each job.")
     pmts = []
-    # for each job,
-    for i in range(len(jobs)):
-        # for each of its pages,
-        jobpages = jobs[i].pages
-        for j in range(len(jobpages)):
-            # create a new PTE
-            pmts[i][j] = PageTableEntry()
+    # For each job,
+    for job in jobs:
+        job_pmt = {}
+        # For each page in the job,
+        for page in job.pages:
+            # Create a new PageTableEntry and add it to the PMT for the job.
+            job_pmt[page] = PageTableEntry()
+        # Add the PMT for the job to the list of PMTs.
+        pmts.append(job_pmt)
     return pmts
 
 
@@ -132,7 +135,7 @@ def makeNewFrames(numframes, jobs, pmt):
     """
     print("Populating new list of frames.")
     # make list of frames
-    frames = [None for _ in range(numframes)]
+    frames = [None for _ in range(int(numframes))]
     # for each job,
     for job in jobs:
         # if there are no empty frames,
@@ -148,7 +151,7 @@ def makeNewFrames(numframes, jobs, pmt):
                     # assign page to that frame
                     frames[nextindex] = job.pages[i]
                     # update the page entry for that page
-                    pmt[pmt.index(job)][i] = PageTableEntry(True, 0, 0, nextindex)
+                    pmt[jobs.index(job)][i] = PageTableEntry(True, 0, 0, nextindex)
                 else:
                     break
     # return frames once filled with pages
@@ -208,19 +211,31 @@ def assignframeFIFO(job, stepindex, frames, pmt):
 
 
 def assignframeLRU(job, stepindex, frames, pmt):
-    print("Replacing using Least Referenced Unit Policy.")
     """assigns a page of a job to a frame in memory, removing pages using LRU policy."""
-    # priority 1 is not modified and not referenced.
-    # priority 2 is not modified and is referenced.
+    print("Replacing using Least Referenced Unit Policy.")
+    # get correct row for current job in PMT list
+    jobindex = pmt.index(job)
     # for each frame,
+    for frame in frames:
+        # priority 1 is not modified and not referenced.
+        currpage = PageTableEntry(pmt[jobindex][stepindex])
         # if the loaded page fits policy 1, remove it
-            # replace it with the required page
-            # update its PTE
+        if currpage.modified == 0 and currpage.referenced == 0:
+            frames[frame] = job.pages[stepindex]
+            # update the page entry for that page
+            pmt[jobindex][stepindex] = PageTableEntry(True, 0, 0, frame)
             # return the frames and pmt
-        # else, if the loaded page fits policy 2, remove it
-            # replace it with the required page
-            # update its PTE
+            return frames, pmt
+    for frame in frames:
+        # priority 2 is not modified and is referenced.
+        currpage = PageTableEntry(pmt[jobindex][stepindex])
+        # if the loaded page fits policy 2, remove it
+        if currpage.modified == 0 and currpage.referenced == 1:
+            frames[frame] = job.pages[stepindex]
+            # update the page entry for that page
+            pmt[jobindex][stepindex] = PageTableEntry(True, 0, 0, frame)
             # return the frames and pmt
+            return frames, pmt
     return frames, pmt
 
 
@@ -267,7 +282,7 @@ def runprogram(inputfile):
     for job in jobs:
         interrupts = 0
         interrupts += job.runjob(frames, pmt, policy)
-        results.append([id(job), interrupts])
+        results.append([str(id(job)), interrupts])
     # print the results.
     printresults(policy, numframes, results)
 
