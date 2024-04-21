@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="work on job scheduler.">
-      <change beforePath="$PROJECT_DIR$/.idea/OperatingSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OperatingSystems.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project 4/JobScheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project 4/JobScheduler.py" afterDir="false" />
-    </list>
+    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="added debugging notes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +34,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -311,7 +308,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713394077626</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Job Scheduler debugging.">
+      <created>1713680933068</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713680933068</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added debugging notes">
+      <created>1713681125031</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1713681125031</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,6 +359,8 @@
     <MESSAGE value="debugging efforts ongoing." />
     <MESSAGE value="updated parameters file and readme." />
     <MESSAGE value="work on job scheduler." />
-    <option name="LAST_COMMIT_MESSAGE" value="work on job scheduler." />
+    <MESSAGE value="Job Scheduler debugging." />
+    <MESSAGE value="added debugging notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added debugging notes" />
   </component>
 </project>
