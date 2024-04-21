@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="fixed pages math in makepages">
-      <change afterPath="$PROJECT_DIR$/P3/jobparams" afterDir="false" />
+    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="work on job scheduler.">
+      <change beforePath="$PROJECT_DIR$/.idea/OperatingSystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OperatingSystems.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4/JobScheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project 4/JobScheduler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Coding Projects/OperatingSystems/P2/MemoryManager.py",
+    "last_opened_file_path": "E:/Coding Projects/OperatingSystems/Project 4/JobScheduler.py",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -49,14 +49,37 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Coding Projects\OperatingSystems\Project 4" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cdsim\IdeaProjects\Operating Systems\venv\P1 Expression Evaluator" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Job Scheduler pass argv[1]">
+    <configuration name="Job Scheduler pass argv[1]" type="PythonConfigurationType" factoryName="Python">
+      <module name="OperatingSystems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Coding Projects\Data Structures II\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Project 4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Project 4/JobScheduler.py" />
+      <option name="PARAMETERS" value="jsparams" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="MemoryManager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OperatingSystems" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -76,6 +99,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="PageManager" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="OperatingSystems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Coding Projects\Data Structures II\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P3/PageManager.py" />
+      <option name="PARAMETERS" value="pmparams" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.PageManager" />
+      <item itemvalue="Python.Job Scheduler pass argv[1]" />
+      <item itemvalue="Python.MemoryManager" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MemoryManager" />
@@ -213,23 +262,56 @@
       <option name="project" value="LOCAL" />
       <updated>1711520390432</updated>
     </task>
-    <task id="LOCAL-00018" summary="work 3/27">
-      <option name="closed" value="true" />
-      <created>1711564060921</created>
+    <task id="LOCAL-00018" summary="finished most functions of the program.">
+      <created>1711559554817</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1711564060921</updated>
+      <updated>1711559554817</updated>
     </task>
-    <task id="LOCAL-00019" summary="fixed pages math in makepages">
-      <option name="closed" value="true" />
-      <created>1711564100090</created>
+    <task id="LOCAL-00019" summary="instructions for project 3">
+      <created>1711559563997</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1711564100090</updated>
+      <updated>1711559563997</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="workspace">
+      <created>1711559572307</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711559572307</updated>
+    </task>
+    <task id="LOCAL-00021" summary="initial commit for job scheduler program.">
+      <created>1712954771712</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1712954771712</updated>
+    </task>
+    <task id="LOCAL-00022" summary="debugging efforts ongoing.">
+      <created>1712954789203</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1712954789203</updated>
+    </task>
+    <task id="LOCAL-00023" summary="updated parameters file and readme.">
+      <created>1712954806187</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1712954806187</updated>
+    </task>
+    <task id="LOCAL-00024" summary="work on job scheduler.">
+      <created>1713394077626</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1713394077626</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,8 +341,13 @@
     <MESSAGE value="removed some comments" />
     <MESSAGE value="project 3" />
     <MESSAGE value="project 3 work 3/26 - 3/27" />
-    <MESSAGE value="work 3/27" />
-    <MESSAGE value="fixed pages math in makepages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed pages math in makepages" />
+    <MESSAGE value="finished most functions of the program." />
+    <MESSAGE value="instructions for project 3" />
+    <MESSAGE value="workspace" />
+    <MESSAGE value="initial commit for job scheduler program." />
+    <MESSAGE value="debugging efforts ongoing." />
+    <MESSAGE value="updated parameters file and readme." />
+    <MESSAGE value="work on job scheduler." />
+    <option name="LAST_COMMIT_MESSAGE" value="work on job scheduler." />
   </component>
 </project>
