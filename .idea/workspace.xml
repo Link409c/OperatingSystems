@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="added debugging notes" />
+    <list default="true" id="f34cdc7d-3f0d-4078-ba5e-4dea3945eab4" name="Changes" comment="workspace commit 4/21">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P1/ExpressionEvaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/P1/ExpressionEvaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P2/MemoryManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/P2/MemoryManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P2/README" beforeDir="false" afterPath="$PROJECT_DIR$/P2/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P3/PageManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3/PageManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P3/README" beforeDir="false" afterPath="$PROJECT_DIR$/P3/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4/JobScheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project 4/JobScheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4/README" beforeDir="false" afterPath="$PROJECT_DIR$/Project 4/README" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,19 +41,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/Coding Projects/OperatingSystems/Project 4/JobScheduler.py",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Coding Projects/OperatingSystems/Project 4/JobScheduler.py&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Coding Projects\OperatingSystems\Project 4" />
@@ -53,7 +62,7 @@
       <recent name="C:\Users\cdsim\IdeaProjects\Operating Systems\venv\P1 Expression Evaluator" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Job Scheduler pass argv[1]">
+  <component name="RunManager" selected="Python.MemoryManager">
     <configuration name="Job Scheduler pass argv[1]" type="PythonConfigurationType" factoryName="Python">
       <module name="OperatingSystems" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -322,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713681125031</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="workspace commit 4/21">
+      <created>1713681147196</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1713681147196</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -361,6 +377,7 @@
     <MESSAGE value="work on job scheduler." />
     <MESSAGE value="Job Scheduler debugging." />
     <MESSAGE value="added debugging notes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added debugging notes" />
+    <MESSAGE value="workspace commit 4/21" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace commit 4/21" />
   </component>
 </project>

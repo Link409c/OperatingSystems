@@ -5,6 +5,10 @@
 # The program will use given data from the user to determine the best policy to handle
 # the needs of their system.
 
+# Christian Simpson
+# Programming Assignment 3
+# CSCI 4251 001
+
 import sys
 import random
 
@@ -180,7 +184,7 @@ def assignFramePolicy(policy, job, stepindex, frames, pmt):
     return frames, pmt
 
 
-def assignframeFIFO(job, stepindex, frames, pmt):
+def assignframeFIFO(job: Job, stepindex, frames, pmt):
     """assigns a page of a job to a frame in memory, removing pages using FIFO policy."""
     print("Replacing using First In First Out Policy.")
     # get correct row for current job in PMT list
@@ -275,7 +279,7 @@ def runprogram(inputfile):
     pmt = makePMT(jobs)
     # populate frames list
     pmt, frames = makeNewFrames(numframes, jobs, pmt)
-    policy = input("Input the acronym for the replacement policy you wish to test: ")
+    policy = input("Input the acronym for the replacement policy you wish to test: FIFO or LRU")
     # list to hold job run results
     results = []
     # for each job, follow its list of page calls to complete it

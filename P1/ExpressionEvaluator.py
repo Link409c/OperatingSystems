@@ -1,9 +1,3 @@
-import math
-import re
-import sys
-
-# Project 1
-# Christian Simpson
 # A Program designed to execute, in order, the steps of a given mathematical equation.
 #
 # The program should:
@@ -19,6 +13,15 @@ import sys
 #     Add error handling for user input; 
 #     Finish Parenthesis implementation; 
 #     Can use Python sur library like pyQT5
+
+# Christian Simpson
+# Programming Assignment 1
+# CSCI 4251 001
+
+import math
+import re
+import sys
+
 
 '''
 Function to perform mathematic calculations.

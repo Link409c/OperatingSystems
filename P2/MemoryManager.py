@@ -1,7 +1,3 @@
-# Project 2
-# The Memory Manager
-# Christian Simpson
-##
 # This program emulates the different memory management schemes in Operating Systems which allocate
 # system memory to user jobs, programs, and processes.
 #
@@ -20,8 +16,10 @@
 # the program should adjust memory segments using compaction.
 # the program should print the lists to a file?
 # the program should print some type of results for the user?
-##
-# updates:
+#
+# Christian Simpson
+# Programming Assignment 2
+# CSCI 4251 001
 
 
 import sys

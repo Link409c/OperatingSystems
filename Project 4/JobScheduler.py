@@ -7,6 +7,9 @@
 # table for easy comparison. You may use the following data to test your program.
 # The time quantum for the round robin is 4 ms. (Assume that the context switching time is 0).
 
+# Christian Simpson
+# Programming Assignment 4
+# CSCI 4251 001
 
 import sys
 
@@ -16,10 +19,9 @@ class Processor:
     Simulates a Processor of the System. The processor can handle one process
     at a time.
     """
-    __slots__ = ['name', 'assignedProcess']
+    __slots__ = ['assignedProcess']
 
-    def __init__(self, name = None, assignedProcess = None):
-        self.name = str(name)
+    def __init__(self, assignedProcess = None):
         self.assignedProcess = assignedProcess
 
 
@@ -86,9 +88,9 @@ def chooseAlgorithm():
 def runAlgorithm(processors, waitingJobs, currTime, choice = 1):
     """
     runs the chosen scheduling algorithm to replace running jobs.
-    :param waitingJobs:
-    :param choice:
-    :param processors:
+    :param waitingJobs: the waitlist
+    :param choice: the algorithm chosen
+    :param processors: the processors
     :return: updated processors list and waiting jobs list
     """
     if choice == 1:
@@ -225,10 +227,14 @@ def printResults(algorithmID, processorCount, results, jobs):
         result = results[i]
         avgTurn += result.turnaroundTime
         avgWait += result.waitingTime
-        associatedJob = jobs[i]
+        associatedJob = None
+        for job in jobs:
+            if result.name == job.name:
+                associatedJob = job
+                break
         # print the job id, its arrival time, turnaround time, and wait time.
-        print(f"Job {result.name}\nArrived at {associatedJob.arrivalTime}s\nFinished at {result.finTime}s\n"
-              f"Turnaround Time: {result.turnaroundTime}s\nWait Time: {result.waitingTime}s\n--\n")
+        print(f"Job {associatedJob.name}\nArrived at {associatedJob.arrivalTime}ms\nFinished at {result.finTime}ms\n"
+              f"Turnaround Time: {result.turnaroundTime}ms\nWait Time: {result.waitingTime}ms\n--\n")
     # print average turnaround and wait times
     print(f"Average Turnaround Time: {float(avgTurn / len(results))}\n"
           f"Average Wait Time: {float(avgWait / len(results))}")
@@ -267,18 +273,21 @@ def runprogram(arg):
             time += 1
             # simulate cpu cycle
             for processor in processors:
-                thisProcess = Job(processor.assignedProcess)
-                if thisProcess.name != 'None':
-                    # reduce each process remaining time by 1
-                    thisProcess.remainingTime -= 1
-                    # then if a process has finished,
-                    if thisProcess.remainingTime <= 0:
-                        # log the stats and remove it
-                        thisJobStats = JobStatistic(thisProcess.name)
-                        thisJobStats.calcTurnaround(time, thisProcess)
-                        thisJobStats.calcWaitingTime(thisProcess)
-                        runResults.append(thisJobStats)
-                        processor.assignedProcess = None
+                if processor.assignedProcess is not None:
+                    thisProcess: Job = processor.assignedProcess
+                    if thisProcess.name != 'None':
+                        # reduce each process remaining time by 1
+                        thisProcess.remainingTime -= 1
+                        # then if a process has finished,
+                        processor.assignedProcess = thisProcess
+                        if thisProcess.remainingTime <= 0:
+                            # log the stats and remove it
+                            thisJobStats = JobStatistic(thisProcess.name)
+                            thisJobStats.finTime = time
+                            thisJobStats.calcTurnaround(time, thisProcess)
+                            thisJobStats.calcWaitingTime(thisProcess)
+                            runResults.append(thisJobStats)
+                            processor.assignedProcess = None
             # if waiting jobs remain in queue,
             if len(waitingQueue) > 0:
                 # run replacement algorithm
