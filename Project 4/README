@@ -3,8 +3,47 @@ This is the instruction manual for the Job Scheduler Program.
 This program simulates four different scheduling algorithms and their performance with different
 processor counts.
 
+To begin, download the file "JobScheduler.py" to a suitable directory if not already located on your device.
 
-Job Arrival Times CPU Cycle (in ms)
+Next, ensure the parameters file "jsparams" is located in the same directory as the program.
+
+Then, check that you have Python installed by opening the Terminal and typing the command:
+
+    python
+
+If not, navigate to Python.com using your web browser to download and install the latest version.
+
+Once that is complete, open a new Terminal.
+
+Navigate to the directory containing the file, "JobScheduler.py".
+
+To run the program, type the command:
+
+    python JobScheduler.py jsparams
+
+Hit the ENTER key to start the program.
+
+The user is prompted to enter the number of processors to test with. Enter any integer value.
+Incorrect inputs will not be accepted.
+
+Next, choose the scheduling algorithm by following the instructions listed. Enter 1, 2, 3, or 4.
+These correspond to First Come First Serve, Shortest Job Next, Shortest Remaining Time, and Round Robin, respectively.
+The time quantum for Round Robin is set at 4 ms.
+Incorrect inputs will not be accepted.
+
+The program will run simulating cpu cycles for each job, replacing incoming jobs as required by the chosen algorithm.
+
+Afterward, the statistics of each job are shown. The chosen algorithm, number of processors,
+and number of jobs is displayed. For each job, the arrival time, finished time, turnaround time, and wait time
+is displayed. Then, the average turnaround time and average wait time is displayed.
+
+Finally, the user is prompted to continue. Enter either 0 or 1. Incorrect inputs are not accepted.
+If 1 is entered, the program runs a new experiment. If 0 is entered, the program ends.
+
+Below is the syntax for the passed parameters file. The user may edit their file to add or remove jobs.
+
+Each line is a job. The separated values correspond to Job ID, Arrival Time, and CPU Cycle (in ms).
+
 A,0,16
 B,3,2
 C,5,11
@@ -18,4 +57,4 @@ J,19,8
 
 Current Known Bugs:
 
-All jobs state finish time of 0s.
+SJN, SRT, Round Robin produce incorrect values for average wait times and average turnaround times.

@@ -1,5 +1,3 @@
-Test
-
 This is the instructional guide for Project 2: The Memory Allocation Emulator.
 
 The program's purpose is to illustrate the different ways in which a single-user
@@ -7,7 +5,10 @@ operating system allocates, manages, and assigns memory to different jobs or pro
 loaded into the system.
 
 The user should pass a file to the arguments when running the program that contains
-the necessary memory needed to run the programs, sizes of the memory partitions, and job names / sizes.
+the following:
+line 1: total memory allocated for all partitions.
+line 2: sizes of the memory partitions, equaling the total.
+line 3 - end: each job consisting of job name and memory required.
 
 Example:
 
@@ -19,5 +20,29 @@ Job 3, 75000
 Job 4, 25000
 Job 5, 30000
 
+To begin, download the file "MemoryManager.py" to a suitable directory if not already located on your device.
+
+Next, ensure the parameters file "mmparams" is located in the same directory as the program.
+
+Then, check that you have Python installed by opening the Terminal and typing the command:
+
+    python
+
+If not, navigate to Python.com using your web browser to download and install the latest version.
+
+Once that is complete, open a new Terminal.
+
+Navigate to the directory containing the file, "MemoryManager.py".
+
+To run the program, type the command:
+
+    python MemoryManager.py mmparams
+
+Hit the ENTER key to start the program.
+
 The program will parse the input and create lists the functions will follow to
 illustrate how memory allocation would handle the jobs.
+
+Currently, First Fit algorithm is available for testing purposes.
+
+Current Known Bugs: list indexing for compaction fails after first successful function call.

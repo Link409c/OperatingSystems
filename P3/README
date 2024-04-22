@@ -40,3 +40,7 @@ Page Replacement will be handled according to the chosen replacement algorithm.
 The program will inform the user of the results after completing every job.
 
 Note the steps generated for each job are random, so run times and interrupt counts will vary.
+
+Current Known Bugs:
+
+job indexing for replacement algorithms does not find associated job in list.
